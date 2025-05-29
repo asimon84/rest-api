@@ -10,6 +10,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::view('about', 'about')->name('about');
+    Route::view('faq', 'faq')->name('faq');
 });
 
 Route::middleware(['auth'])->group(function () {

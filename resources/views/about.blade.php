@@ -6,7 +6,7 @@
             </h3>
 
             <p>
-                This is a simple example of a REST API.
+                This is a simple example of a REST API, an Application Programming Interface that uses RESTful principles to provide stateless interaction with test data.
             </p>
         </div>
     </div>
