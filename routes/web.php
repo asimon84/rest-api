@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FAQController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -8,9 +11,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard');
-    Route::view('about', 'about')->name('about');
-    Route::view('faq', 'faq')->name('faq');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 });
 
 Route::middleware(['auth'])->group(function () {
