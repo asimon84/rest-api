@@ -15,9 +15,13 @@ class Record extends Model
      * @var list<string>
      */
     protected $fillable = [
-//        'name',
-//        'email',
-//        'password',
+        'string',
+        'text',
+        'json',
+        'boolean',
+        'integer',
+        'float',
+        'created_at',
     ];
 
     /**
@@ -26,7 +30,7 @@ class Record extends Model
      * @var list<string>
      */
     protected $hidden = [
-//        'password',
+//        'updated_at' => 'datetime',
     ];
 
     /**
@@ -37,7 +41,14 @@ class Record extends Model
     protected function casts(): array
     {
         return [
-//            'email_verified_at' => 'datetime',
+            'string' => 'string',
+            'text' => 'string',
+            'json' => 'string',
+            'boolean' => 'boolean',
+            'integer' => 'integer',
+            'float' => 'float',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
         ];
     }
 }
