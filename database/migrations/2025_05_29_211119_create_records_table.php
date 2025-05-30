@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-
+            $table->string('string')->nullable(true)->default(null);
+            $table->text('test')->nullable(true)->default(null);
+            $table->json('json')->nullable(true)->default(null);
+            $table->boolean('boolean')->nullable(false)->default(false);
+            $table->integer('integer')->default(0);
+            $table->float('float', 2)->default(0.00);
             $table->timestamps();
         });
     }
