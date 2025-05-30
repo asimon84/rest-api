@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Record;
 use Illuminate\Database\Seeder;
 
-class RecordsSeeder extends Seeder
+class RecordSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        //
+        Record::factory(10)->create();
     }
 }
