@@ -42,51 +42,71 @@ class AuthController extends Controller
 //            'user' => $user,
 //        ]);
 //    }
+//
+//    /**
+//     * @param Request $request
+//     * @return mixed
+//     */
+//    public function login(Request $request)
+//    {
+//        if (!Auth::attempt($request->only('email', 'password'))) {
+//            return response()->json(['error' => 'Unauthorized'], 401);
+//        }
+//
+//        $user = Auth::user();
+//        $token = $user->createToken('plainTextToken', [])->plainTextToken;
+//
+//        return response()->json([
+//            'success' => true,
+//            'message' => 'Login successful.',
+//            'token' => $token,
+//            'user' => $user,
+//        ]);
+//    }
 
     /**
+     * Get User information
+     *
      * @param Request $request
      * @return mixed
      */
-    public function login(Request $request)
-    {
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
-        $user = Auth::user();
-        $token = $user->createToken('plainTextToken', [])->plainTextToken;
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Login successful.',
-            'token' => $token,
-            'user' => $user,
-        ]);
-    }
-
-    /**
-     * @param Request $request
-     * @return mixed
-     */
-    public function profile(Request $request)
+    public function getUser(Request $request)
     {
         return response()->json([
             'success' => true,
             'user' => $request->user(),
         ]);
     }
+//
+//    /**
+//     * @param Request $request
+//     * @return mixed
+//     */
+//    public function logout(Request $request)
+//    {
+//        $request->user()->tokens()->delete();
+//
+//        return response()->json([
+//            'success' => true,
+//            'message' => 'Logout successful.',
+//        ]);
+//    }
 
     /**
+     * Create a new API User Token
+     *
      * @param Request $request
-     * @return mixed
+     * @return array
      */
-    public function logout(Request $request)
+    public function createToken(Request $request): array
     {
-        $request->user()->tokens()->delete();
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Logout successful.',
-        ]);
+        $user = Auth::user();
+        $token = $user->createToken('plainTextToken', []);
+
+        return ['token' => $token->plainTextToken];
     }
 }
