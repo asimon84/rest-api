@@ -11,6 +11,51 @@ use Validator;
 
 class AuthController extends Controller
 {
+    /**
+     * Default name for Tokens
+     *
+     * @param string
+     */
+    const DEFAULT_TOKEN_NAME = 'API Bearer Token';
+
+    /**
+     * Default number of minutes before Tokens expire
+     *
+     * @param string
+     */
+    const DEFAULT_TOKEN_EXPIRATION_MINUTES = 5;
+
+    /**
+     * Default Token Abilities
+     *
+     * @param array
+     */
+    const DEFAULT_TOKEN_ABILITIES = [
+        "*"
+    ];
+
+    /**
+     * Create a new API User Token
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function createToken(Request $request): array
+    {
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        $user = Auth::user();
+        $token = $user->createToken(
+            self::DEFAULT_TOKEN_NAME,
+            self::DEFAULT_TOKEN_ABILITIES,
+            now()->addMinutes(self::DEFAULT_TOKEN_EXPIRATION_MINUTES)
+        );
+
+        return ['token' => $token->plainTextToken];
+    }
+
 //    /**
 //     * @param Request $request
 //     * @return mixed
@@ -33,7 +78,7 @@ class AuthController extends Controller
 //            'password' => Hash::make($request->password),
 //        ]);
 //
-//        $token = $user->createToken('plainTextToken', [])->plainTextToken;
+//        $token = $user->createToken(self::DEFAULT_TOKEN_NAME, self::DEFAULT_TOKEN_ABILITIES, now()->addMinutes(self::DEFAULT_TOKEN_EXPIRATION_MINUTES)->plainTextToken;
 //
 //        return response()->json([
 //            'success' => true,
@@ -63,20 +108,6 @@ class AuthController extends Controller
 //            'user' => $user,
 //        ]);
 //    }
-
-    /**
-     * Get User information
-     *
-     * @param Request $request
-     * @return mixed
-     */
-    public function getUser(Request $request)
-    {
-        return response()->json([
-            'success' => true,
-            'user' => $request->user(),
-        ]);
-    }
 //
 //    /**
 //     * @param Request $request
@@ -91,22 +122,4 @@ class AuthController extends Controller
 //            'message' => 'Logout successful.',
 //        ]);
 //    }
-
-    /**
-     * Create a new API User Token
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function createToken(Request $request): array
-    {
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
-        $user = Auth::user();
-        $token = $user->createToken('plainTextToken', []);
-
-        return ['token' => $token->plainTextToken];
-    }
 }
