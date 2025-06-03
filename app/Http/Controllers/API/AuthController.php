@@ -24,7 +24,7 @@ class AuthController extends Controller
      *
      * @param string
      */
-    const DEFAULT_TOKEN_EXPIRATION_MINUTES = 5;
+    const DEFAULT_TOKEN_EXPIRATION_MINUTES = 5000;
 
     /**
      * Default Token Abilities
