@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -25,12 +26,15 @@ class UserController extends Controller
      * Get User By ID
      *
      * @param Request $request
-     * @param int $id
+     * @param User $user
      * @return mixed
      */
-    public function getUserByID(Request $request, int $id)
+    public function getUserByID(Request $request, User $user)
     {
-
+        return response()->json([
+            'success' => true,
+            'user' => $user,
+        ]);
     }
 
     /**
