@@ -20,4 +20,52 @@ class UserController extends Controller
             'user' => $request->user(),
         ]);
     }
+
+    /**
+     * Get User By ID
+     *
+     * @param Request $request
+     * @param int $id
+     * @return mixed
+     */
+    public function getUserByID(Request $request, int $id)
+    {
+
+    }
+
+    /**
+     * Patch User By ID
+     *
+     * @param Request $request
+     * @param int $id
+     * @return mixed
+     */
+    public function patchUserByID(Request $request, int $id)
+    {
+
+    }
+
+    /**
+     * Update User By ID
+     *
+     * @param Request $request
+     * @param int $id
+     * @return mixed
+     */
+    public function updateUserByID(Request $request, int $id)
+    {
+
+    }
+
+    /**
+     * Delete User By ID
+     *
+     * @param Request $request
+     * @param int $id
+     * @return mixed
+     */
+    public function deleteUserByID(Request $request, int $id)
+    {
+
+    }
 }
