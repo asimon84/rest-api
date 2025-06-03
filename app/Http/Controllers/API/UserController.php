@@ -23,53 +23,39 @@ class UserController extends Controller
     }
 
     /**
-     * Get User By ID
+     * Patch User
      *
      * @param Request $request
-     * @param User $user
      * @return mixed
      */
-    public function getUserByID(Request $request, User $user)
+    public function patchUser(Request $request)
     {
+
+    }
+
+    /**
+     * Update User
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function updateUser(Request $request)
+    {
+
+    }
+
+    /**
+     * Delete User
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function deleteUser(Request $request)
+    {
+        User::destroy($request->user()->id);
+
         return response()->json([
-            'success' => true,
-            'user' => $user,
+            'success' => true
         ]);
-    }
-
-    /**
-     * Patch User By ID
-     *
-     * @param Request $request
-     * @param int $id
-     * @return mixed
-     */
-    public function patchUserByID(Request $request, int $id)
-    {
-
-    }
-
-    /**
-     * Update User By ID
-     *
-     * @param Request $request
-     * @param int $id
-     * @return mixed
-     */
-    public function updateUserByID(Request $request, int $id)
-    {
-
-    }
-
-    /**
-     * Delete User By ID
-     *
-     * @param Request $request
-     * @param int $id
-     * @return mixed
-     */
-    public function deleteUserByID(Request $request, int $id)
-    {
-
     }
 }
