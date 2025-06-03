@@ -4,6 +4,12 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
+//Basic User registration, login, and logout methods
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//Custom token creation
 Route::post('/token/create', [AuthController::class, 'createToken'])->name('token.create');
 
 Route::middleware(['auth:sanctum'])->group(function () {
