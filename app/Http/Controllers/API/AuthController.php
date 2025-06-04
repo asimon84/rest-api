@@ -41,7 +41,7 @@ class AuthController extends Controller
      * @param Request $request
      * @return array
      */
-    public function createToken(Request $request): array
+    public function createToken(Request $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
@@ -163,8 +163,18 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-        $success = $request->user()->tokens()->delete();
-        $message = () ? 'Logout successful.' : 'Task failed. Logout unsuccessful.';
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Task failed. Login unsuccessful.',
+                'error' => 'Unauthorized'
+            ], 401);
+        }
+
+        Auth::user();
+
+        $success = (bool) $request->user()->tokens()->delete();
+        $message = ($success) ? 'Logout successful.' : 'Task failed. Logout unsuccessful.';
 
         return response()->json([
             'success' => $success,
