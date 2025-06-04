@@ -32,7 +32,10 @@ class AuthController extends Controller
      * @param array
      */
     const DEFAULT_TOKEN_ABILITIES = [
-        "*"
+        '*',
+//        "get-user",
+//        "edit-user",
+//        "delete-user",
     ];
 
     /**

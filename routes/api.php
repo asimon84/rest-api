@@ -15,8 +15,8 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
 //Routes Behind Authentication
 Route::middleware(['auth:sanctum'])->group(function () {
     //User Read, Update, Delete methods
-    Route::get('/user', [UserController::class, 'getUser'])->name('user.get');
-    Route::patch('/user', [UserController::class, 'patchUser'])->name('user.patch');
-    Route::put('/user', [UserController::class, 'updateUser'])->name('user.update');
-    Route::delete('/user', [UserController::class, 'deleteUser'])->name('user.delete');
+    Route::middleware(['ability:get-user'])->get('/user', [UserController::class, 'getUser'])->name('user.get');
+    Route::middleware(['ability:edit-user'])->patch('/user', [UserController::class, 'patchUser'])->name('user.patch');
+    Route::middleware(['ability:edit-user'])->put('/user', [UserController::class, 'updateUser'])->name('user.update');
+    Route::middleware(['ability:delete-user'])->delete('/user', [UserController::class, 'deleteUser'])->name('user.delete');
 });
