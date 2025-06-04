@@ -54,9 +54,9 @@ class AuthController extends Controller
             ], 401);
         }
 
-        $tokenName = $request->get('tokenName') ?? self::DEFAULT_TOKEN_NAME;
-        $tokenAbilities = $request->get('abilities') ?? self::DEFAULT_TOKEN_ABILITIES;
-        $tokenExpirationMinutes = $request->get('expirationMinutes') ?? now()->addMinutes(self::DEFAULT_TOKEN_EXPIRATION_MINUTES);
+        $tokenName = $request->get('tokenName', self::DEFAULT_TOKEN_NAME);
+        $tokenAbilities = $request->get('abilities', self::DEFAULT_TOKEN_ABILITIES);
+        $tokenExpirationMinutes = now()->addMinutes($request->get('expirationMinutes', self::DEFAULT_TOKEN_EXPIRATION_MINUTES));
 
         $user = Auth::user();
 
