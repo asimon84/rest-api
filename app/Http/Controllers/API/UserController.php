@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
     {
         return response()->json([
             'success' => true,
-            'user' => $request->user(),
+            'user' => $request->user()
         ]);
     }
 
@@ -30,7 +31,16 @@ class UserController extends Controller
      */
     public function patchUser(Request $request)
     {
+        $user = User::find($request->user()->id);
 
+        $user->name = $request->get('name') ?? $user->name;
+        $user->email = $request->get('email') ?? $user->email;
+        $user->password = Hash::make($request->get('password') ?? $user->password);
+
+        return response()->json([
+            'success' => $user->save(),
+            'user' => $user
+        ]);
     }
 
     /**
@@ -41,7 +51,16 @@ class UserController extends Controller
      */
     public function updateUser(Request $request)
     {
+        $user = User::find($request->user()->id);
 
+        $user->name = $request->get('name') ?? $user->name;
+        $user->email = $request->get('email') ?? $user->email;
+        $user->password = Hash::make($request->get('password') ?? $user->password);
+
+        return response()->json([
+            'success' => $user->save(),
+            'user' => $user
+        ]);
     }
 
     /**
@@ -52,10 +71,8 @@ class UserController extends Controller
      */
     public function deleteUser(Request $request)
     {
-        User::destroy($request->user()->id);
-
         return response()->json([
-            'success' => true
+            'success' => !empty(User::destroy($request->user()->id))
         ]);
     }
 }

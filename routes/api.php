@@ -14,7 +14,7 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', [UserController::class, 'getUser'])->name('user.get');
-    Route::put('/user', [UserController::class, 'patchUser'])->name('user.patch');
-    Route::post('/user', [UserController::class, 'updateUser'])->name('user.update');
+    Route::patch('/user', [UserController::class, 'patchUser'])->name('user.patch');
+    Route::put('/user', [UserController::class, 'updateUser'])->name('user.update');
     Route::delete('/user', [UserController::class, 'deleteUser'])->name('user.delete');
 });
