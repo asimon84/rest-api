@@ -17,9 +17,15 @@ class UserController extends Controller
      */
     public function getUser(Request $request)
     {
+        $user = $request->user();
+
+        $success = (!empty($user)) ? true : false;
+        $message = ($success) ? 'User found successfully.' : 'Task failed. User not found.';
+
         return response()->json([
-            'success' => true,
-            'user' => $request->user()
+            'success' => $success,
+            'message' => $message,
+            'user' => $user
         ]);
     }
 
@@ -33,12 +39,16 @@ class UserController extends Controller
     {
         $user = User::find($request->user()->id);
 
-        $user->name = $request->get('name') ?? $user->name;
-        $user->email = $request->get('email') ?? $user->email;
-        $user->password = Hash::make($request->get('password') ?? $user->password);
+        $user->name = $request->get('name', $user->name);
+        $user->email = $request->get('email', $user->email);
+        $user->password = ($request->get('password')) ? Hash::make($request->get('password')) : $user->password;
+
+        $success = $user->save();
+        $message = ($success) ? 'User updated successfully.' : 'Task failed. User not updated.';
 
         return response()->json([
-            'success' => $user->save(),
+            'success' => $success,
+            'message' => $message,
             'user' => $user
         ]);
     }
@@ -53,12 +63,16 @@ class UserController extends Controller
     {
         $user = User::find($request->user()->id);
 
-        $user->name = $request->get('name') ?? $user->name;
-        $user->email = $request->get('email') ?? $user->email;
-        $user->password = Hash::make($request->get('password') ?? $user->password);
+        $user->name = $request->get('name', $user->name);
+        $user->email = $request->get('email', $user->email);
+        $user->password = ($request->get('password')) ? Hash::make($request->get('password')) : $user->password;
+
+        $success = $user->save();
+        $message = ($success) ? 'User updated successfully.' : 'Task failed. User not updated.';
 
         return response()->json([
-            'success' => $user->save(),
+            'success' => $success,
+            'message' => $message,
             'user' => $user
         ]);
     }
@@ -71,8 +85,12 @@ class UserController extends Controller
      */
     public function deleteUser(Request $request)
     {
+        $success = !empty(User::destroy($request->user()->id));
+        $message = ($success) ? 'User deleted successfully.' : 'Task failed. User not deleted.';
+
         return response()->json([
-            'success' => !empty(User::destroy($request->user()->id))
+            'success' => $success,
+            'message' => $message
         ]);
     }
 }

@@ -44,7 +44,11 @@ class AuthController extends Controller
     public function createToken(Request $request): array
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json([
+                'success' => false,
+                'message' => 'Task failed. Token not created.',
+                'error' => 'Unauthorized'
+            ], 401);
         }
 
         $tokenName = $request->get('tokenName') ?? self::DEFAULT_TOKEN_NAME;
@@ -57,9 +61,17 @@ class AuthController extends Controller
             $tokenName,
             $tokenAbilities,
             $tokenExpirationMinutes
-        );
+        )->plainTextToken;
 
-        return ['token' => $token->plainTextToken];
+        $success = (!empty($token) && !empty($user)) ? true : false;
+        $message = ($success) ? 'Token created successfully.' : 'Task failed. Token not created.';
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'token' => $token,
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -77,7 +89,11 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 401);
+            return response()->json([
+                'success' => false,
+                'message' => 'Task failed. User not registered.',
+                'error' => $validator->errors()
+            ], 401);
         }
 
         $user = User::create([
@@ -91,11 +107,15 @@ class AuthController extends Controller
             self::DEFAULT_TOKEN_NAME,
             self::DEFAULT_TOKEN_ABILITIES,
             now()->addMinutes(self::DEFAULT_TOKEN_EXPIRATION_MINUTES)
-        );
+        )->plainTextToken;
+
+        $success = (!empty($token) && !empty($user)) ? true : false;
+        $message = ($success) ? 'User registered successfully.' : 'Task failed. User not registered.';
+
         return response()->json([
-            'success' => true,
-            'message' => 'User registered successfully.',
-            'token' => $token->plainTextToken,
+            'success' => $success,
+            'message' => $message,
+            'token' => $token,
             'user' => $user,
         ]);
     }
@@ -109,7 +129,11 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json([
+                'success' => false,
+                'message' => 'Task failed. Login unsuccessful.',
+                'error' => 'Unauthorized'
+            ], 401);
         }
 
         $user = Auth::user();
@@ -118,12 +142,15 @@ class AuthController extends Controller
             self::DEFAULT_TOKEN_NAME,
             self::DEFAULT_TOKEN_ABILITIES,
             now()->addMinutes(self::DEFAULT_TOKEN_EXPIRATION_MINUTES)
-        );
+        )->plainTextToken;
+
+        $success = (!empty($token) && !empty($user)) ? true : false;
+        $message = ($success) ? 'Login successful.' : 'Task failed. Login unsuccessful.';
 
         return response()->json([
-            'success' => true,
-            'message' => 'Login successful.',
-            'token' => $token->plainTextToken,
+            'success' => $success,
+            'message' => $message,
+            'token' => $token,
             'user' => $user,
         ]);
     }
@@ -136,11 +163,12 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->tokens()->delete();
+        $success = $request->user()->tokens()->delete();
+        $message = () ? 'Logout successful.' : 'Task failed. Logout unsuccessful.';
 
         return response()->json([
-            'success' => true,
-            'message' => 'Logout successful.',
+            'success' => $success,
+            'message' => $message
         ]);
     }
 }

@@ -12,7 +12,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //Custom token creation
 Route::post('/token/create', [AuthController::class, 'createToken'])->name('token.create');
 
+//Routes Behind Authentication
 Route::middleware(['auth:sanctum'])->group(function () {
+    //User Read, Update, Delete methods
     Route::get('/user', [UserController::class, 'getUser'])->name('user.get');
     Route::patch('/user', [UserController::class, 'patchUser'])->name('user.patch');
     Route::put('/user', [UserController::class, 'updateUser'])->name('user.update');
