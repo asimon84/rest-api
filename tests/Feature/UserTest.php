@@ -21,9 +21,11 @@ class UserTest extends TestCase
 
         $response = $this->post('/api/register', $data);
 
-        $response->assertStatus(200);
-//        $response->assertHasNoErrors();
-//        $response->assertTrue();
-//        $response->assertNotEmpty(($response->decodeResponseJson())->json('user'));
+        $this->assertTrue($response['success']);
+        $this->assertNotEmpty($response['message']);
+        $this->assertNotEmpty($response['token']);
+        $this->assertNotEmpty($response['user']);
     }
+
+
 }
