@@ -31,7 +31,7 @@ class AuthTest extends TestCase
     public function test_create_token(): void
     {
         $user = User::factory()->create();
-        $user->password  = Hash::make('test1234');
+        $user->password = Hash::make('test1234');
         $user->save();
 
         $data = [
@@ -50,7 +50,7 @@ class AuthTest extends TestCase
     public function test_login(): void
     {
         $user = User::factory()->create();
-        $user->password  = Hash::make('test1234');
+        $user->password = Hash::make('test1234');
         $user->save();
 
         $data = [
@@ -70,7 +70,7 @@ class AuthTest extends TestCase
     public function test_logout(): void
     {
         $user = User::factory()->create();
-        $user->password  = Hash::make('test1234');
+        $user->password = Hash::make('test1234');
         $user->save();
 
         $data = [

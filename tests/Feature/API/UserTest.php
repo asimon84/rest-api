@@ -36,7 +36,7 @@ class UserTest extends TestCase
         $this->assertTrue($response['success']);
         $this->assertNotEmpty($response['message']);
         $this->assertNotEmpty($response['user']);
-        $this->assertNotEquals($response['user']['name'], $data['name']);
+        $this->assertEquals($response['user']['name'], $data['name']);
     }
 
     public function test_put_user(): void
