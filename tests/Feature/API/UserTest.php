@@ -15,18 +15,61 @@ class UserTest extends TestCase
     public function test_get_user(): void
     {
         $user = User::factory()->create();
-        $user->password  = Hash::make('test1234');
-        $user->save();
 
-        $data = [
-            'email' => $user->email,
-            'password' => 'test1234'
-        ];
-
-        $response = $this->post('/api/token/create', $data);
+        $response = $this->actingAs($user)
+            ->get('/api/user');
 
         $this->assertTrue($response['success']);
         $this->assertNotEmpty($response['message']);
         $this->assertNotEmpty($response['user']);
+    }
+
+    public function test_patch_user(): void
+    {
+        $user = User::factory()->create();
+
+        $data = [
+            'name' => 'New User Name',
+            'email' => 'new@email.com',
+            'password' => 'newpass1234',
+        ];
+
+        $response = $this->actingAs($user)
+            ->patch('/api/user', $data);
+
+        $this->assertTrue($response['success']);
+        $this->assertNotEmpty($response['message']);
+        $this->assertNotEmpty($response['user']);
+        $this->assertNotEquals($response['user']['name'], $user->name);
+    }
+
+    public function test_put_user(): void
+    {
+        $user = User::factory()->create();
+
+        $data = [
+            'name' => 'New User Name',
+            'email' => 'new@email.com',
+            'password' => 'newpass1234',
+        ];
+
+        $response = $this->actingAs($user)
+            ->put('/api/user', $data);
+
+        $this->assertTrue($response['success']);
+        $this->assertNotEmpty($response['message']);
+        $this->assertNotEmpty($response['user']);
+        $this->assertNotEquals($response['user']['name'], $user->name);
+    }
+
+    public function test_delete_user(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)
+            ->delete('/api/user');
+
+        $this->assertTrue($response['success']);
+        $this->assertNotEmpty($response['message']);
     }
 }
