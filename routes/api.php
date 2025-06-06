@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\RecordController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::patch('/user', [UserController::class, 'patchUser'])->middleware(['ability:edit-user'])->name('user.patch');
     Route::put('/user', [UserController::class, 'updateUser'])->middleware(['ability:edit-user'])->name('user.update');
     Route::delete('/user', [UserController::class, 'deleteUser'])->middleware(['ability:delete-user'])->name('user.delete');
+
+    //Full CRUD for Record resource
+    Route::resource('record', RecordController::class);
 });
