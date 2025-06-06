@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Record;
 use Illuminate\Http\Request;
 
 class RecordController extends Controller
@@ -12,7 +13,15 @@ class RecordController extends Controller
      */
     public function index()
     {
-        //
+        $success = true;
+        $message = 'TEST';
+        $records = Record::all();
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'records' => $records
+        ]);
     }
 
     /**
@@ -20,7 +29,18 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $success = true;
+        $message = 'TEST';
+
+        $record   = [
+            'string' => 'test'
+        ];
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'record' => $record
+        ]);
     }
 
     /**
@@ -28,7 +48,15 @@ class RecordController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $success = true;
+        $message = 'TEST';
+        $record = Record::find($id);
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'record' => $record
+        ]);
     }
 
     /**
@@ -36,7 +64,17 @@ class RecordController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $success = true;
+        $message = 'TEST';
+        $record = Record::find($id);
+
+        $record->string = 'test';
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'record' => $record
+        ]);
     }
 
     /**
@@ -44,6 +82,13 @@ class RecordController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $success = true;
+        $message = 'TEST';
+        $record = Record::destroy($id);
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message
+        ]);
     }
 }
