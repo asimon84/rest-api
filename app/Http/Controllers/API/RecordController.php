@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class RecordController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a list of all records
+     *
+     * @return mixed
      */
     public function index()
     {
@@ -26,7 +28,10 @@ class RecordController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created record
+     *
+     * @param Request $request
+     * @return mixed
      */
     public function store(Request $request)
     {
@@ -50,7 +55,10 @@ class RecordController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified record
+     *
+     * @param string $id
+     * @return mixed
      */
     public function show(string $id)
     {
@@ -67,7 +75,11 @@ class RecordController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified record
+     *
+     * @param Request $request
+     * @param string $id
+     * @return mixed
      */
     public function update(Request $request, string $id)
     {
@@ -91,7 +103,10 @@ class RecordController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified record
+     *
+     * @param string $id
+     * @return mixed
      */
     public function destroy(string $id)
     {

@@ -26,7 +26,10 @@ class UserController extends Controller
 //    }
 
     /**
-     * Display the specified resource.
+     * Display the current user
+     *
+     * @param Request $request
+     * @return mixed
      */
     public function show(Request $request)
     {
@@ -43,7 +46,10 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the current user
+     *
+     * @param Request $request
+     * @return mixed
      */
     public function update(Request $request)
     {
@@ -64,7 +70,10 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the current user
+     *
+     * @param Request $request
+     * @return mixed
      */
     public function destroy(Request $request)
     {
