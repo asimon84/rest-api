@@ -16,10 +16,10 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
 //Routes Behind Authentication
 Route::middleware(['auth:sanctum'])->group(function () {
     //User Read, Update, Delete methods
-    Route::get('/user', [UserController::class, 'getUser'])->middleware(['ability:get-user'])->name('user.get');
-    Route::patch('/user', [UserController::class, 'patchUser'])->middleware(['ability:edit-user'])->name('user.patch');
-    Route::put('/user', [UserController::class, 'updateUser'])->middleware(['ability:edit-user'])->name('user.update');
-    Route::delete('/user', [UserController::class, 'deleteUser'])->middleware(['ability:delete-user'])->name('user.delete');
+    Route::get('/user', [UserController::class, 'show'])->middleware(['ability:get-user'])->name('user.show');
+    Route::patch('/user', [UserController::class, 'update'])->middleware(['ability:edit-user'])->name('user.patch');
+    Route::put('/user', [UserController::class, 'update'])->middleware(['ability:edit-user'])->name('user.put');
+    Route::delete('/user', [UserController::class, 'destroy'])->middleware(['ability:delete-user'])->name('user.destroy');
 
     //Full CRUD for Record resource
     Route::resource('record', RecordController::class);

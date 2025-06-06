@@ -9,13 +9,26 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+//    /**
+//     * Display a listing of the resource.
+//     */
+//    public function index()
+//    {
+//        //
+//    }
+//
+//    /**
+//     * Store a newly created resource in storage.
+//     */
+//    public function store(Request $request)
+//    {
+//        //
+//    }
+
     /**
-     * Get User information
-     *
-     * @param Request $request
-     * @return mixed
+     * Display the specified resource.
      */
-    public function getUser(Request $request)
+    public function show(Request $request)
     {
         $user = $request->user();
 
@@ -30,12 +43,9 @@ class UserController extends Controller
     }
 
     /**
-     * Patch User
-     *
-     * @param Request $request
-     * @return mixed
+     * Update the specified resource in storage.
      */
-    public function patchUser(Request $request)
+    public function update(Request $request)
     {
         $user = User::find($request->user()->id);
 
@@ -54,36 +64,9 @@ class UserController extends Controller
     }
 
     /**
-     * Update User
-     *
-     * @param Request $request
-     * @return mixed
+     * Remove the specified resource from storage.
      */
-    public function updateUser(Request $request)
-    {
-        $user = User::find($request->user()->id);
-
-        $user->name = $request->get('name', $user->name);
-        $user->email = $request->get('email', $user->email);
-        $user->password = ($request->get('password')) ? Hash::make($request->get('password')) : $user->password;
-
-        $success = $user->save();
-        $message = ($success) ? 'User updated successfully.' : 'Task failed. User not updated.';
-
-        return response()->json([
-            'success' => $success,
-            'message' => $message,
-            'user' => $user
-        ]);
-    }
-
-    /**
-     * Delete User
-     *
-     * @param Request $request
-     * @return mixed
-     */
-    public function deleteUser(Request $request)
+    public function destroy(Request $request)
     {
         $success = !empty(User::destroy($request->user()->id));
         $message = ($success) ? 'User deleted successfully.' : 'Task failed. User not deleted.';
