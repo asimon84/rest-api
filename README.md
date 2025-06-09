@@ -21,4 +21,20 @@ password - Your password
 
 If your token expires, you can make a post request with your email and password to create a new token.
 
+GET RECORDS
 
+CREATE RECORDS
+
+EDIT RECORDS
+
+DELETE RECORDS
+
+FEATURE TESTS
+
+UNIT TESTS
+
+USER PERMISSIONS
+
+SCHEDULED TASKS
+
+MIGRATIONS AND SEEDERS
