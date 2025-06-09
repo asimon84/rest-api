@@ -1,6 +1,10 @@
 REST API
+========
 
 This is a code sample of an API built using RESTful standards. You can register as a user through the API, and the generated user account will be able to access the API as well as a web application with more information and ability to review reports of data.
+
+USER ENDPOINTS
+==============
 
 REGISTER USER
 
@@ -21,6 +25,9 @@ password - Your password
 
 If your token expires, you can make a post request with your email and password to create a new token.
 
+RECORD ENDPOINTS
+================
+
 GET RECORDS
 
 CREATE RECORDS
@@ -29,9 +36,15 @@ EDIT RECORDS
 
 DELETE RECORDS
 
+TESTING
+=======
+
 FEATURE TESTS
 
 UNIT TESTS
+
+POINTS OF INTEREST
+==================
 
 USER PERMISSIONS
 
