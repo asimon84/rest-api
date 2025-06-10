@@ -8,7 +8,9 @@ USER ENDPOINTS
 
 REGISTER USER
 
-/api/register
+Method = POST
+
+URI = /api/register
 
 name - Your User Name
 email - Your User Email
@@ -18,7 +20,9 @@ After posting values for name, email, and password, you will receive a token. Us
 
 CREATE TOKEN
 
-/api/token/create
+Method = POST
+
+URI = /api/token/create
 
 email - Your User Email
 password - Your password
@@ -30,11 +34,43 @@ RECORD ENDPOINTS
 
 GET RECORDS
 
-CREATE RECORDS
+Method = GET
 
-EDIT RECORDS
+URI = /api/record
 
-DELETE RECORDS
+Use this endpoint to return a "records" array containing all records.
+
+CREATE RECORD
+
+Method = POST
+
+URI = /api/record
+
+This endpoint creates a record.
+
+GET RECORD
+
+Method = GET
+
+URI = /api/record/{id}
+
+Retrieves a specific record tied to the corresponding record ID.
+
+EDIT RECORD
+
+Method = PUT/PATCH
+
+URI = /api/record/{id}
+
+Edits a specific record tied to the corresponding record ID.
+
+DELETE RECORD
+
+Method = DELETE
+
+URI = /api/record/{id}
+
+Deletes a specific record tied to the corresponding record ID.
 
 TESTING
 =======
