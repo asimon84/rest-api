@@ -75,6 +75,18 @@ Deletes a specific record tied to the corresponding record ID.
 TESTING
 =======
 
+Run this command to run all tests in the application:
+
+php artisan test
+
+To run just the feature tests use this command:
+
+php artisan test --testsuite=Feature
+
+To run just the unit tests use this command:
+
+php artisan test --testsuite=Unit
+
 FEATURE TESTS
 
 /tests/Feature/
@@ -110,3 +122,15 @@ MIGRATIONS AND SEEDERS
 /database/seeders/
 
 These folders contain the database migrations and data seeders used to build and fill the database.
+
+Run this command to freshly migrate the database:
+
+php artisan migrate
+
+Run this command to seed the database with data:
+
+php artisan db:seed
+
+Run this command to undo the database and prepare for a fresh migration:
+
+php artisan migrate:rollback
