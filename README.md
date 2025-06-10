@@ -77,13 +77,36 @@ TESTING
 
 FEATURE TESTS
 
+/tests/Feature/
+
+This folder contains all the Feature tests, these  are tests that ensure that user functionality is working correctly.
+
+/tests/Feature/API/
+
+This folder contains feature tests relating to the API endpoints and their functionality.
+
 UNIT TESTS
+
+/tests/Unit/
+
+This section contains unit tests for testing units of code. These tests should not touch the database, test the front end, or call an API endpoint.
 
 POINTS OF INTEREST
 ==================
 
 USER PERMISSIONS
 
+Permissions utilize the laravel ability system to manage access to API endpoints and their functionality.
+
 SCHEDULED TASKS
 
+/routes/console.php
+
+This file contains scheduled tasks that run periodically.
+
 MIGRATIONS AND SEEDERS
+
+/database/migrations/
+/database/seeders/
+
+These folders contain the database migrations and data seeders used to build and fill the database.
