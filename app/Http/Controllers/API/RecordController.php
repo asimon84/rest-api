@@ -36,12 +36,12 @@ class RecordController extends Controller
     public function store(Request $request)
     {
         $record = new Record([
-            'string' => 'test string',
-            'text' => 'test text',
-            'json' => '{}',
-            'boolean' => true,
-            'integer' => 10,
-            'float' => 9.99
+            'string' => $request->get('string'),
+            'text' => $request->get('text'),
+            'json' => $request->get('json'),
+            'boolean' => $request->get('boolean', false),
+            'integer' => $request->get('integer', 0),
+            'float' => $request->get('float', 0.00)
         ]);
 
         $success = (!empty($record)) ? true : false;
