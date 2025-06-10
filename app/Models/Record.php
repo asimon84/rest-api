@@ -21,7 +21,6 @@ class Record extends Model
         'boolean',
         'integer',
         'float',
-        'created_at',
     ];
 
     /**
@@ -30,7 +29,7 @@ class Record extends Model
      * @var list<string>
      */
     protected $hidden = [
-//        'updated_at' => 'datetime',
+
     ];
 
     /**
