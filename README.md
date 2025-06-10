@@ -134,3 +134,5 @@ php artisan db:seed
 Run this command to undo the database and prepare for a fresh migration:
 
 php artisan migrate:rollback
+
+
