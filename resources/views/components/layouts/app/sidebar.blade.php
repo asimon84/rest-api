@@ -26,7 +26,7 @@
                 {{ __('Repository') }}
                 </flux:navlist.item>
 
-                <flux:navlist.item icon="book-open-text" href="./docs">
+                <flux:navlist.item icon="book-open-text" href="./docs" target="_blank">
                 {{ __('Documentation') }}
                 </flux:navlist.item>
             </flux:navlist>
