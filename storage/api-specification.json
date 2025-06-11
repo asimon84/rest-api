@@ -1,0 +1,385 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "127.0.0.1"
+    }
+  ],
+  "paths": {
+    "/api/register": {
+      "parameters": [],
+      "post": {
+        "summary": "Register",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "example": "Testing 123",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "example": "test123@example.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "example": "test1234",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/token/create": {
+      "parameters": [],
+      "post": {
+        "summary": "Create Token",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "example": "test@example.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "example": "test1234",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/login": {
+      "parameters": [],
+      "post": {
+        "summary": "Login",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "example": "test@example.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "example": "test1234",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/logout": {
+      "parameters": [],
+      "post": {
+        "summary": "Logout",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "example": "test@example.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "example": "test1234",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "parameters": [],
+      "get": {
+        "summary": "Get User",
+        "parameters": [],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Patch User",
+        "parameters": [],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Put User",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "example": "Post Test User",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "example": "test@test.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "example": "test1234",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete User",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/record": {
+      "parameters": [],
+      "get": {
+        "summary": "Get Records",
+        "parameters": [],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add Record",
+        "parameters": [
+          {
+            "name": "string",
+            "in": "query",
+            "required": false,
+            "example": "test",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/record/1": {
+      "parameters": [],
+      "get": {
+        "summary": "Get Record By ID",
+        "parameters": [],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Put Record By ID",
+        "parameters": [
+          {
+            "name": "string",
+            "in": "query",
+            "required": false,
+            "example": "test put string",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Patch Record By ID",
+        "parameters": [
+          {
+            "name": "string",
+            "in": "query",
+            "required": false,
+            "example": "test patch string",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Record By ID",
+        "parameters": [],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
