@@ -1,11 +1,10 @@
 <?php
 
-namespace Tests\Feature\API;
+namespace Tests\Integration\API;
 
 use App\Models\Record;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class RecordTest extends TestCase
