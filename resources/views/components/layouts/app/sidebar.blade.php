@@ -26,7 +26,7 @@
                 {{ __('Repository') }}
                 </flux:navlist.item>
 
-                <flux:navlist.item icon="book-open-text" href="https://github.com/asimon84/rest-api" target="_blank">
+                <flux:navlist.item icon="book-open-text" href="./docs">
                 {{ __('Documentation') }}
                 </flux:navlist.item>
             </flux:navlist>
