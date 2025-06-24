@@ -11,6 +11,41 @@ class RecordTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_unauthorized_get_records(): void
+    {
+        $response = $this->get('/api/record');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthorized_add_record(): void
+    {
+        $response = $this->post('/api/record');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthorized_patch_record(): void
+    {
+        $response = $this->patch('/api/record/1');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthorized_put_record(): void
+    {
+        $response = $this->put('/api/record/1');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthorized_delete_record(): void
+    {
+        $response = $this->delete('/api/record/1');
+
+        $response->assertRedirect('/login');
+    }
+
     public function test_get_records(): void
     {
         Record::factory()->create();

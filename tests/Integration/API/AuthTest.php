@@ -11,6 +11,34 @@ class AuthTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_unauthorized_register_user(): void
+    {
+        $response = $this->post('/api/register', []);
+
+        $response->assertStatus(401);
+    }
+
+    public function test_unauthorized_create_token(): void
+    {
+        $response = $this->post('/api/token/create', []);
+
+        $response->assertStatus(401);
+    }
+
+    public function test_unauthorized_login(): void
+    {
+        $response = $this->post('/api/login', []);
+
+        $response->assertStatus(401);
+    }
+
+    public function test_unauthorized_logout(): void
+    {
+        $response = $this->post('/api/logout', []);
+
+        $response->assertStatus(401);
+    }
+
     public function test_register_user(): void
     {
         $data = [

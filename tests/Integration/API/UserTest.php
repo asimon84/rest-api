@@ -10,6 +10,34 @@ class UserTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_unauthorized_get_user(): void
+    {
+        $response = $this->get('/api/user');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthorized_patch_user(): void
+    {
+        $response = $this->patch('/api/user');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthorized_put_user(): void
+    {
+        $response = $this->put('/api/user');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthorized_delete_user(): void
+    {
+        $response = $this->delete('/api/user');
+
+        $response->assertRedirect('/login');
+    }
+
     public function test_get_user(): void
     {
         $response = $this->actingAs(User::factory()->create())
