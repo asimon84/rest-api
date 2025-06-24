@@ -13,7 +13,7 @@ class RecordController extends Controller
      *
      * @return mixed
      */
-    public function index()
+    public function index(Request $request)
     {
         $records = Record::all();
 
