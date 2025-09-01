@@ -1,6 +1,25 @@
 <x-layouts.app :title="__('FAQ')">
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+            <div class="accordion">
+                <div class="accordion-item border-b">
+                    <button class="accordion-header w-full text-left py-4 px-6 text-gray-700 font-semibold focus:outline-none">
+                        Section 1
+                    </button>
+                    <div class="accordion-content hidden p-6 text-gray-600">
+                        Content for section 1
+                    </div>
+                </div>
+                <div class="accordion-item border-b">
+                    <button class="accordion-header w-full text-left py-4 px-6 text-gray-700 font-semibold focus:outline-none">
+                        Section 2
+                    </button>
+                    <div class="accordion-content hidden p-6 text-gray-600">
+                        Content for section 2
+                    </div>
+                </div>
+            </div>
+
             <h3>
                 FAQ
             </h3>
