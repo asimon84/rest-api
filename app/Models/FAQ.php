@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class FAQ extends Model
 {
+    /**
+     * @array>array>
+     */
     CONST ITEMS = [
         [
             'title' => 'What is this?',
@@ -19,6 +22,11 @@ class FAQ extends Model
         ],
     ];
 
+    /**
+     * JSON Encode items into string
+     *
+     * @return string
+     */
     public static function getItems(): string
     {
         return json_encode([ 'items' => self::ITEMS]);
