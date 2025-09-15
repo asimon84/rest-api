@@ -73,3 +73,7 @@ select:focus[data-flux-control] {
     font-weight: bold;
     font-size: 22pt;
 }
+
+.text {
+    margin: 20px;
+}
