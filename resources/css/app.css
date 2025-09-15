@@ -65,4 +65,11 @@ select:focus[data-flux-control] {
     @apply size-4;
 } */
 
+.heading {
+    margin: 20px;
+}
 
+.heading h3 {
+    font-weight: bold;
+    font-size: 22pt;
+}
