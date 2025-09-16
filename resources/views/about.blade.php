@@ -3,7 +3,7 @@
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
 
             <div class="heading">
-                <h3>Frequently Asked Questions</h3>
+                <h3>About</h3>
             </div>
 
             <p class="text">
@@ -11,7 +11,15 @@
             </p>
 
             <p class="text">
+                You can create, edit, and deleted records through the endpoints provided by the API. From the dashboard page of this portal you can view the data you have interacted with.
+            </p>
 
+            <p class="text">
+                <a href="https://github.com/asimon84/rest-api">Click Here</a> for the Code Repository for this application.
+            </p>
+
+            <p class="text">
+                <a href="./docs">Click Here</a> for the API Endpoints Documentation.
             </p>
 
         </div>
