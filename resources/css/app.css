@@ -77,3 +77,9 @@ select:focus[data-flux-control] {
 .text {
     margin: 20px;
 }
+
+.link {
+    color: #0a53be;
+    text-decoration: underline;
+    cursor: pointer;
+}
