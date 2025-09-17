@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Record extends Model
 {
@@ -53,27 +53,39 @@ class Record extends Model
     }
 
     /**
+     * Return formatted array for c3 charts, count of all records within the last 'x' days.
+     *
      * @param int $days
      *
      * @return array
      */
-    public static function getRecordsByDays(int $days = 10): array
+    public static function getRecordsLastXDays(int $days = 7): array
     {
-        $output = DB::table('records')
-            ->select(
-                DB::raw('DATE(created_at) as date'),
-                DB::raw('COUNT(*) as count')
-            )
+        $startDate = Carbon::now()->subDays($days)->startOfDay();
+        $endDate = Carbon::now()->endOfDay();
+
+        $dateRange = [];
+        for ($i = 0; $i < $days; $i++) {
+            $date = $startDate->copy()->addDays($i)->format('Y-m-d');
+            $dateRange[$date] = 0;
+        }
+
+        $dailyCounts = Record::selectRaw('DATE(created_at) as date, COUNT(*) as count')
+            ->whereBetween('created_at', [$startDate, $endDate])
             ->groupBy('date')
-            ->orderBy('date')
-            ->get();
+            ->orderBy('date', 'ASC')
+            ->get()
+            ->keyBy('date')
+            ->toArray();
 
-        $dates = $output->pluck('date')->toArray();
-        $counts = $output->pluck('count')->toArray();
+        $finalCounts = array_replace($dateRange, array_column($dailyCounts, 'count', 'date'));
 
-        array_unshift($dates, 'date');
-        array_unshift($counts, 'records');
+        $dates = array_keys($finalCounts);
+        array_unshift($dates, "dates");
 
-        return [$dates, $counts];
+        $records = array_values($finalCounts);
+        array_unshift($records, "records");
+
+        return [$dates, $records];
     }
 }

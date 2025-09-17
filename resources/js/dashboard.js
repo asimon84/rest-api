@@ -2,7 +2,7 @@ var chart = c3.generate(
     {
         bindto: '#record-chart',
         data: {
-            x: 'date',
+            x: 'dates',
             columns: window.chartData,
         type: 'line'
     },

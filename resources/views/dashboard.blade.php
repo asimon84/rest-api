@@ -20,6 +20,7 @@
 
 <script>
     window.chartData = @json($chartData);
+    console.log(window.chartData);
 </script>
 
 @vite('resources/js/dashboard.js')
