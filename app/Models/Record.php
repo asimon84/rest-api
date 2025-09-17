@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Record extends Model
 {
@@ -58,12 +59,21 @@ class Record extends Model
      */
     public static function getRecordsByDays(int $days = 10): array
     {
-        $output = [];
+        $output = DB::table('records')
+            ->select(
+                DB::raw('DATE(created_at) as date'),
+                DB::raw('COUNT(*) as count')
+            )
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
 
-        for ($i = 0; $i < $days; $i++) {
-            $output[] = Record::all();
-        }
+        $dates = $output->pluck('date')->toArray();
+        $counts = $output->pluck('count')->toArray();
 
-        return $output;
+        array_unshift($dates, 'date');
+        array_unshift($counts, 'records');
+
+        return [$dates, $counts];
     }
 }

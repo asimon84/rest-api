@@ -1,3 +1,12 @@
+@section('styles')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+@endsection
+
 <x-layouts.app :title="__('Dashboard')">
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
@@ -10,10 +19,7 @@
 </x-layouts.app>
 
 <script>
-    var chart = c3.generate({
-        bindto: '#record-chart',
-        data: {
-            columns: @json($chartData)
-        }
-    });
+    window.chartData = @json($chartData);
 </script>
+
+@vite('resources/js/dashboard.js')
