@@ -7,11 +7,11 @@
             </div>
 
             <p class="text">
-                This is a simple example of a REST API, an Application Programming Interface that uses RESTful principles to provide stateless interaction with test data.
+                This is a simple example of a REST API, an Application Programming Interface that uses RESTful principles to provide stateless interaction with test data. It also includes this simple "client portal" to review data and link to the code repository and documentation.
             </p>
 
             <p class="text">
-                You can create, edit, and deleted records through the endpoints provided by the API. From the dashboard page of this portal you can view the data you have interacted with.
+                You can create, edit, and deleted records through the endpoints provided by the API. From the dashboard page of this client portal you can review the data you have interacted with.
             </p>
 
             <p class="text">
