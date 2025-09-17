@@ -1,15 +1,15 @@
-var chart = c3.generate(
-    {
-        bindto: '#record-chart',
-        data: {
-            x: 'dates',
-            columns: window.chartData,
+var chart = window.c3.generate(
+{
+    bindto: '#record-chart',
+    data: {
+        x: 'dates',
+        columns: window.chartData,
         type: 'line'
     },
     axis: {
         x: {
             type: 'timeseries',
-                tick: {
+            tick: {
                 format: '%Y-%m-%d'
             }
         },
