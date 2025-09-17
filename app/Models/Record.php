@@ -50,4 +50,20 @@ class Record extends Model
             'updated_at' => 'datetime',
         ];
     }
+
+    /**
+     * @param int $days
+     *
+     * @return array
+     */
+    public static function getRecordsByDays(int $days = 10): array
+    {
+        $output = [];
+
+        for ($i = 0; $i < $days; $i++) {
+            $output[] = Record::all();
+        }
+
+        return $output;
+    }
 }
