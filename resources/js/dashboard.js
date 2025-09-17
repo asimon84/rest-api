@@ -12,6 +12,12 @@ var chart = c3.generate(
                 tick: {
                 format: '%Y-%m-%d'
             }
+        },
+        y: {
+            min: 0,
+            padding: {
+                bottom: 0
+            }
         }
     }
 });
