@@ -26,23 +26,23 @@
 
 <script>
     window.chartData = @json($chartData);
-    window.route = "{{ route('records') }}";
+    {{--window.route = "{{ route('records') }}";--}}
 
-    var table = document.getElementsByClassName('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: window.route,
-        columns: [
-            {data: 'id', name: 'id'},
-            {data: 'string', name: 'string'},
-            {data: 'text', name: 'text'},
-            {data: 'json', name: 'json'},
-            {data: 'bool', name: 'bool'},
-            {data: 'int', name: 'int'},
-            {data: 'float', name: 'float'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ]
-    });
+//    var table = document.getElementsByClassName('.data-table').DataTable({
+//        processing: true,
+//        serverSide: true,
+//        ajax: window.route,
+//        columns: [
+//            {data: 'id', name: 'id'},
+//            {data: 'string', name: 'string'},
+//            {data: 'text', name: 'text'},
+//            {data: 'json', name: 'json'},
+//            {data: 'bool', name: 'bool'},
+//            {data: 'int', name: 'int'},
+//            {data: 'float', name: 'float'},
+//            {data: 'action', name: 'action', orderable: false, searchable: false},
+//        ]
+//    });
 </script>
 
 @vite('resources/js/dashboard.js')
