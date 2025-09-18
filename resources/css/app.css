@@ -83,3 +83,8 @@ select:focus[data-flux-control] {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.dashboard-chart-container {
+    min-height: 320px;
+    max-height: 320px;
+}
