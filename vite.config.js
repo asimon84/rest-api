@@ -3,7 +3,6 @@ import {
 } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import tailwindcss from "@tailwindcss/vite";
-import DataTable from 'datatables.net-dt';
 
 export default defineConfig({
     plugins: [
@@ -16,7 +15,6 @@ export default defineConfig({
             refresh: true,
         }),
         tailwindcss(),
-        DataTable(),
     ],
     server: {
         cors: true,
