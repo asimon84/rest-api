@@ -38,8 +38,8 @@
                 {data: 'string', name: 'string'},
                 {data: 'text', name: 'text'},
                 {data: 'json', name: 'json'},
-                {data: 'bool', name: 'bool'},
-                {data: 'int', name: 'int'},
+                {data: 'boolean', name: 'boolean'},
+                {data: 'integer', name: 'integer'},
                 {data: 'float', name: 'float'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
