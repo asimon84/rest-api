@@ -13,7 +13,7 @@ class RecordController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function($row){
 
-                $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                $btn = '<button type="button" class="btn btn-info">View</button>';
 
                 return $btn;
             })
