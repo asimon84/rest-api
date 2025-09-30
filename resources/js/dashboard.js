@@ -21,5 +21,3 @@ var chart = window.c3.generate(
         }
     }
 });
-
-

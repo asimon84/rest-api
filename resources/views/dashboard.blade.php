@@ -4,7 +4,7 @@
             <div id="record-chart"></div>
         </div>
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <table class="table table-bordered data-table">
+            <table id="myDataTable" class="table table-bordered">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -26,23 +26,41 @@
 
 <script>
     window.chartData = @json($chartData);
-    {{--window.route = "{{ route('records') }}";--}}
+    window.route = "{{ route('records') }}";
 
-//    var table = document.getElementsByClassName('.data-table').DataTable({
-//        processing: true,
-//        serverSide: true,
-//        ajax: window.route,
-//        columns: [
-//            {data: 'id', name: 'id'},
-//            {data: 'string', name: 'string'},
-//            {data: 'text', name: 'text'},
-//            {data: 'json', name: 'json'},
-//            {data: 'bool', name: 'bool'},
-//            {data: 'int', name: 'int'},
-//            {data: 'float', name: 'float'},
-//            {data: 'action', name: 'action', orderable: false, searchable: false},
-//        ]
-//    });
+    $(document).ready(function() {
+        new DataTable('#myDataTable', {
+            processing: true,
+            serverSide: true,
+            ajax: window.route,
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'string', name: 'string'},
+                {data: 'text', name: 'text'},
+                {data: 'json', name: 'json'},
+                {data: 'bool', name: 'bool'},
+                {data: 'int', name: 'int'},
+                {data: 'float', name: 'float'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+
+//        var table = document.getElementById('myDataTable').DataTable({
+//            processing: true,
+//            serverSide: true,
+//            ajax: window.route,
+//            columns: [
+//                {data: 'id', name: 'id'},
+//                {data: 'string', name: 'string'},
+//                {data: 'text', name: 'text'},
+//                {data: 'json', name: 'json'},
+//                {data: 'bool', name: 'bool'},
+//                {data: 'int', name: 'int'},
+//                {data: 'float', name: 'float'},
+//                {data: 'action', name: 'action', orderable: false, searchable: false},
+//            ]
+//        });
+    });
 </script>
 
 @vite('resources/js/dashboard.js')
