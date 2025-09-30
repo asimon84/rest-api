@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    public function index() {
+    /**
+     * @return \Illuminate\Container\TClass|static
+     */
+    public function index(Request $request) {
         return view('about',  []);
     }
 }

@@ -11,8 +11,8 @@
                     <th>String</th>
                     <th>Text</th>
                     <th>JSON</th>
-                    <th>Bool</th>
-                    <th>Int</th>
+                    <th>Boolean</th>
+                    <th>Integer</th>
                     <th>Float</th>
                     <th width="100px">Action</th>
                 </tr>
@@ -25,15 +25,46 @@
 </x-layouts.app>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="recordModal" tabindex="-1" aria-labelledby="recordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="recordModalLabel">Record Modal</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <table id="record-modal">
+                    <tbody>
+                        <tr>
+                            <td class="bold">ID:</td>
+                            <td id="record-modal-id"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold">String:</td>
+                            <td id="record-modal-string"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Text:</td>
+                            <td id="record-modal-text"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold">JSON:</td>
+                            <td id="record-modal-json"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Boolean:</td>
+                            <td id="record-modal-boolean"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Integer:</td>
+                            <td id="record-modal-integer"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Float:</td>
+                            <td id="record-modal-float"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
