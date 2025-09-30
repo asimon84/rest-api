@@ -28,9 +28,9 @@ new DataTable('#myDataTable', {
     ajax: window.route,
     columns: [
         {data: 'id', name: 'id'},
-        {data: 'string', name: 'string'},
-        {data: 'text', name: 'text'},
-        {data: 'json', name: 'json'},
+        {data: 'string', name: 'string', className: 'truncate-text'},
+        {data: 'text', name: 'text', className: 'truncate-text'},
+        {data: 'json', name: 'json', className: 'truncate-text'},
         {data: 'boolean', name: 'boolean'},
         {data: 'integer', name: 'integer'},
         {data: 'float', name: 'float'},

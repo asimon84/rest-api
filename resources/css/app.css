@@ -88,3 +88,10 @@ select:focus[data-flux-control] {
     min-height: 320px;
     max-height: 320px;
 }
+
+.truncate-text {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
