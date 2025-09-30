@@ -21,3 +21,19 @@ var chart = window.c3.generate(
         }
     }
 });
+
+new DataTable('#myDataTable', {
+    processing: true,
+    serverSide: true,
+    ajax: window.route,
+    columns: [
+        {data: 'id', name: 'id'},
+        {data: 'string', name: 'string'},
+        {data: 'text', name: 'text'},
+        {data: 'json', name: 'json'},
+        {data: 'boolean', name: 'boolean'},
+        {data: 'integer', name: 'integer'},
+        {data: 'float', name: 'float'},
+        {data: 'action', name: 'action', orderable: false, searchable: false},
+    ]
+});
