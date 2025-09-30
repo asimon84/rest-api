@@ -28,38 +28,20 @@
     window.chartData = @json($chartData);
     window.route = "{{ route('records') }}";
 
-    $(document).ready(function() {
-        new DataTable('#myDataTable', {
-            processing: true,
-            serverSide: true,
-            ajax: window.route,
-            columns: [
-                {data: 'id', name: 'id'},
-                {data: 'string', name: 'string'},
-                {data: 'text', name: 'text'},
-                {data: 'json', name: 'json'},
-                {data: 'boolean', name: 'boolean'},
-                {data: 'integer', name: 'integer'},
-                {data: 'float', name: 'float'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
-        });
-
-//        var table = document.getElementById('myDataTable').DataTable({
-//            processing: true,
-//            serverSide: true,
-//            ajax: window.route,
-//            columns: [
-//                {data: 'id', name: 'id'},
-//                {data: 'string', name: 'string'},
-//                {data: 'text', name: 'text'},
-//                {data: 'json', name: 'json'},
-//                {data: 'bool', name: 'bool'},
-//                {data: 'int', name: 'int'},
-//                {data: 'float', name: 'float'},
-//                {data: 'action', name: 'action', orderable: false, searchable: false},
-//            ]
-//        });
+    new DataTable('#myDataTable', {
+        processing: true,
+        serverSide: true,
+        ajax: window.route,
+        columns: [
+            {data: 'id', name: 'id'},
+            {data: 'string', name: 'string'},
+            {data: 'text', name: 'text'},
+            {data: 'json', name: 'json'},
+            {data: 'boolean', name: 'boolean'},
+            {data: 'integer', name: 'integer'},
+            {data: 'float', name: 'float'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
+        ]
     });
 </script>
 
