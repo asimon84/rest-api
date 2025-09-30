@@ -95,3 +95,20 @@ select:focus[data-flux-control] {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+a:link {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #0000EE;
+}
+
+a:active {
+    color: #EE0000;
+}
+
+a:focus {
+    outline: none;
+}
