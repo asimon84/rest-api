@@ -4,7 +4,7 @@
             <div id="record-chart"></div>
         </div>
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <table id="myDataTable" class="table table-bordered">
+            <table id="myDataTable" class="table table-bordered stripe hover">
                 <thead>
                 <tr>
                     <th>ID</th>
