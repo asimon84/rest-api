@@ -37,3 +37,7 @@ new DataTable('#myDataTable', {
         {data: 'action', name: 'action', orderable: false, searchable: false},
     ]
 });
+
+const myModalElement = document.getElementById('exampleModal');
+
+const myModal = new bootstrap.Modal(myModalElement);

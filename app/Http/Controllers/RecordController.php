@@ -12,10 +12,7 @@ class RecordController extends Controller
         return DataTables::of(Record::all())
             ->addIndexColumn()
             ->addColumn('action', function($row){
-
-                $btn = '<button type="button" class="btn btn-info">View</button>';
-
-                return $btn;
+                return '<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-search"></i></button>';
             })
             ->rawColumns(['action'])
             ->make(true);
