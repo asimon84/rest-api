@@ -15,11 +15,11 @@
             </p>
 
             <p class="text">
-                <a class="link" href="https://github.com/asimon84/rest-api">Click Here</a> for the Code Repository for this application.
+                <a class="link" href="https://github.com/asimon84/rest-api" target="_NEW">Click Here</a> for the Code Repository for this application.
             </p>
 
             <p class="text">
-                <a class="link" href="./docs">Click Here</a> for the API Endpoints Documentation.
+                <a class="link" href="./docs" target="_NEW">Click Here</a> for the API Endpoints Documentation.
             </p>
 
         </div>
