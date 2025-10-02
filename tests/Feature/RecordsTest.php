@@ -12,12 +12,12 @@ class RecordsTest extends TestCase
     use RefreshDatabase;
 
     public function test_guests_are_redirected_to_the_login_page(): void
-{
-    $response = $this->get('/records');
-    $response->assertRedirect('/login');
-}
+    {
+        $response = $this->get('/records');
+        $response->assertRedirect('/login');
+    }
 
-    public function test_authenticated_users_can_viiew_records(): void
+    public function test_authenticated_users_can_view_records(): void
     {
         $user = User::factory()->create();
         $this->actingAs($user);
@@ -32,7 +32,7 @@ class RecordsTest extends TestCase
         $response->assertRedirect('/login');
     }
 
-    public function test_authenticated_users_can_viiew_single_record(): void
+    public function test_authenticated_users_can_view_single_record(): void
     {
         $user = User::factory()->create();
         $this->actingAs($user);
