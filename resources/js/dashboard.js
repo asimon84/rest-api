@@ -68,4 +68,3 @@ $(document).on('click', '.view-record', function() {
         }
     });
 });
-
