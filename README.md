@@ -3,6 +3,13 @@ REST API
 
 This is a code sample of an API built using RESTful standards. You can register as a user through the API, and the generated user account will be able to access the API as well as a web application with more information and ability to review reports of data.
 
+DOCUMENTAZTION
+==============
+
+{{ URL }}/docs
+
+See api-specification.json file.
+
 USER ENDPOINTS
 ==============
 
@@ -91,17 +98,23 @@ FEATURE TESTS
 
 /tests/Feature/
 
-This folder contains all the Feature tests, these  are tests that ensure that user functionality is working correctly.
+This folder contains all the Feature tests, these are tests that ensure that site front end functionality is working correctly.
 
-/tests/Feature/API/
+Integration TESTS
 
-This folder contains feature tests relating to the API endpoints and their functionality.
+/tests/Integration/
+
+This folder contains all the Integration tests, these are tests that ensure that complete functionality is working correctly.
+
+/tests/Integration/API/
+
+This folder contains integration tests relating to the API endpoints and their functionality.
 
 UNIT TESTS
 
 /tests/Unit/
 
-This section contains unit tests for testing units of code. These tests should not touch the database, test the front end, or call an API endpoint.
+This section contains unit tests for testing units of code. These tests should not touch the database, test the front end, or call an API endpoint. They test the units of code themselves, mainly Models and their methods.
 
 POINTS OF INTEREST
 ==================
