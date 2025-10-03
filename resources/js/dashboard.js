@@ -1,4 +1,4 @@
-var chart = window.c3.generate(
+var chart = c3.generate(
 {
     bindto: '#record-chart',
     data: {
