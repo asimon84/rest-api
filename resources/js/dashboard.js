@@ -1,3 +1,6 @@
+import * as d3 from 'd3';
+import c3 from 'c3';
+
 var chart = c3.generate(
 {
     bindto: '#record-chart',
