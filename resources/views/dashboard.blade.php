@@ -76,7 +76,7 @@
 
     <script>
         window.chartData = @json($chartData);
-        window.route = "{{ route('records') }}";
+        window.route = "{{ route('chart-records') }}";
 
         {!! Vite::content('resources/js/dashboard.js') !!}
     </script>
