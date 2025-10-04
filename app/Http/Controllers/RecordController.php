@@ -9,7 +9,10 @@ use Yajra\DataTables\DataTables;
 class RecordController extends Controller
 {
     /**
+     * Get data for records table on Dashboard page
+     *
      * @param Request $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request) {
@@ -23,8 +26,11 @@ class RecordController extends Controller
     }
 
     /**
+     * Get data for record modal on Dashboard page
+     *
      * @param Request $request
      * @param int $id
+     *
      * @return mixed
      */
     public function show(Request $request, int $id) {
