@@ -28,7 +28,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "example": "Testing 123",
+            "example": "Test User",
             "schema": {
               "type": "string"
             }
@@ -37,7 +37,7 @@
             "name": "email",
             "in": "query",
             "required": false,
-            "example": "test123@example.com",
+            "example": "test@test.com",
             "schema": {
               "type": "string"
             }
@@ -52,12 +52,59 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "User registered successfully.",
+                  "token": "4|Vhwa0cL8JkL9k28h4gW9SEKUSZUaePLpNtuV6Vw447f2c49c",
+                  "user": {
+                    "name": "Test User",
+                    "email": "test321@test.com",
+                    "updated_at": "2025-10-05T01:56:43.000000Z",
+                    "created_at": "2025-10-05T01:56:43.000000Z",
+                    "id": 14
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. User not registered.",
+                  "error": {
+                    "email": [
+                      "The email has already been taken."
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "$ref": "#/components/schemas/New User"
+              },
+              "example": {
+                "name": "Test User",
+                "email": "test@test.com",
+                "password": "test1234"
               }
             }
           }
@@ -425,6 +472,80 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "New User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Success Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "Error Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "error": {
+            "type": "object"
+          },
         }
       }
     }
