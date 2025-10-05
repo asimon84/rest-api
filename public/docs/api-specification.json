@@ -3,8 +3,13 @@
   "info": {
     "title": "REST API",
     "version": "1.0.0",
-    "description": ""
+    "description": "Documentation for all sample project REST API endpoints."
   },
+  "tags": [
+    {
+      "name": "Endpoints"
+    }
+  ],
   "servers": [
     {
       "url": "127.0.0.1"
@@ -14,7 +19,10 @@
     "/api/register": {
       "parameters": [],
       "post": {
-        "summary": "Register",
+        "summary": "Register a New User",
+        "tags": [
+            "Endpoints"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -59,7 +67,10 @@
     "/api/token/create": {
       "parameters": [],
       "post": {
-        "summary": "Create Token",
+        "summary": "Create New API Token",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "email",
@@ -96,6 +107,9 @@
       "parameters": [],
       "post": {
         "summary": "Login",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "email",
@@ -132,6 +146,9 @@
       "parameters": [],
       "post": {
         "summary": "Logout",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "email",
@@ -168,6 +185,9 @@
       "parameters": [],
       "get": {
         "summary": "Get User",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -182,6 +202,9 @@
       },
       "patch": {
         "summary": "Patch User",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -196,6 +219,9 @@
       },
       "put": {
         "summary": "Put User",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -238,6 +264,9 @@
       },
       "delete": {
         "summary": "Delete User",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "token",
@@ -265,6 +294,9 @@
       "parameters": [],
       "get": {
         "summary": "Get Records",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -279,6 +311,9 @@
       },
       "post": {
         "summary": "Add Record",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "string",
@@ -306,6 +341,9 @@
       "parameters": [],
       "get": {
         "summary": "Get Record By ID",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -320,6 +358,9 @@
       },
       "put": {
         "summary": "Put Record By ID",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "string",
@@ -344,6 +385,9 @@
       },
       "patch": {
         "summary": "Patch Record By ID",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [
           {
             "name": "string",
@@ -368,6 +412,9 @@
       },
       "delete": {
         "summary": "Delete Record By ID",
+        "tags": [
+          "Endpoints"
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
