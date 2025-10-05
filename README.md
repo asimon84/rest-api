@@ -3,6 +3,29 @@ REST API
 
 This is a code sample of an API built using RESTful standards. You can register as a user through the API, and the generated user account will be able to access the API as well as a web application with more information and ability to review reports of data.
 
+INSTALLATION
+============
+
+Run these commands from the terminal on your local machine:
+
+git clone git@github.com:asimon84/rest-api.git
+
+composer install
+
+npm run build
+
+npm run dev
+
+php artisan migrate
+
+php artisan serve
+
+After running the above commands, navigate to your localhost in your browser (http://localhost:8000/). You can log in to the client portal with these credentials:
+
+Username: "test@example.com"
+
+Password: "test1234"
+
 DOCUMENTAZTION
 ==============
 
