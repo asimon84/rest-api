@@ -58,7 +58,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success Response"
+                  "$ref": "#/components/responses/Success Response"
                 },
                 "example": {
                   "success": true,
@@ -80,7 +80,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error Response"
+                  "$ref": "#/components/responses/Error Response"
                 },
                 "example": {
                   "success": false,
@@ -144,7 +144,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success Response"
+                  "$ref": "#/components/responses/Success Response"
                 },
                 "example": {
                   "success": true,
@@ -166,7 +166,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error Response"
+                  "$ref": "#/components/responses/Error Response"
                 },
                 "example": {
                   "success": false,
@@ -194,7 +194,7 @@
               },
               "example": {
                 "name": "Test User",
-                "email": "test@test.com",
+                "email": "test@test.com"
               }
             }
           }
@@ -567,7 +567,15 @@
             "type": "string"
           }
         }
-      },
+      }
+    },
+    "parameters": {
+
+    },
+    "examples": {
+
+    },
+    "responses": {
       "Success Response": {
         "type": "object",
         "properties": {
@@ -596,7 +604,7 @@
           },
           "error": {
             "type": "object"
-          },
+          }
         }
       }
     }
