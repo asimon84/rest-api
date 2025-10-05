@@ -58,7 +58,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/User Success Response"
+                  "$ref": "#/components/responses/User Token Success Response"
                 },
                 "example": {
                   "success": true,
@@ -144,7 +144,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/User Success Response"
+                  "$ref": "#/components/responses/User Token Success Response"
                 },
                 "example": {
                   "success": true,
@@ -234,7 +234,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/User Success Response"
+                  "$ref": "#/components/responses/User Token Success Response"
                 },
                 "example": {
                   "success": true,
@@ -368,7 +368,7 @@
     "/api/user": {
       "parameters": [],
       "get": {
-        "summary": "Get User",
+        "summary": "Get Current User",
         "tags": [
           "Endpoints"
         ],
@@ -378,7 +378,44 @@
           }
         ],
         "parameters": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/User Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "User found successfully.",
+                  "user": {
+                    "id": 1,
+                    "name": "Test User",
+                    "email": "test@example.com",
+                    "created_at": "2025-06-10T19:42:03.000000Z",
+                    "updated_at": "2025-06-10T19:42:03.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/User Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. User not found.",
+                  "user": null
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
@@ -731,7 +768,7 @@
           }
         }
       },
-      "User Success Response": {
+      "User Token Success Response": {
         "type": "object",
         "properties": {
           "success": {
@@ -741,6 +778,20 @@
             "type": "string"
           },
           "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "User Success Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
             "type": "string"
           },
           "user": {
@@ -759,6 +810,20 @@
           },
           "error": {
             "type": "object"
+          }
+        }
+      },
+      "User Error Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "user": {
+            "type": "null"
           }
         }
       }
