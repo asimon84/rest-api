@@ -58,7 +58,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/Success Response"
+                  "$ref": "#/components/responses/User Success Response"
                 },
                 "example": {
                   "success": true,
@@ -144,7 +144,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/Success Response"
+                  "$ref": "#/components/responses/User Success Response"
                 },
                 "example": {
                   "success": true,
@@ -228,12 +228,59 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/User Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Login successful.",
+                  "token": "9|uW0ExJwbZdEee1cSn59jPpdz4vdwRvpPmrXvZUL6cc0b0359",
+                  "user": {
+                    "id": 1,
+                    "name": "Test User",
+                    "email": "test@example.com",
+                    "created_at": "2025-06-10T19:42:03.000000Z",
+                    "updated_at": "2025-06-10T19:42:03.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. Login unsuccessful.",
+                  "error": "Unauthorized"
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -267,12 +314,51 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Simple Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Logout successful."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. Logout unsuccessful.",
+                  "error": "Unauthorized"
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -576,7 +662,18 @@
 
     },
     "responses": {
-      "Success Response": {
+      "Simple Success Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "User Success Response": {
         "type": "object",
         "properties": {
           "success": {
