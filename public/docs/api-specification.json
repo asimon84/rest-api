@@ -372,6 +372,11 @@
         "tags": [
           "Endpoints"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -389,6 +394,11 @@
         "tags": [
           "Endpoints"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -405,6 +415,11 @@
         "summary": "Put User",
         "tags": [
           "Endpoints"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
         ],
         "parameters": [
           {
@@ -451,6 +466,11 @@
         "tags": [
           "Endpoints"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "token",
@@ -481,6 +501,11 @@
         "tags": [
           "Endpoints"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -497,6 +522,11 @@
         "summary": "Add Record",
         "tags": [
           "Endpoints"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
         ],
         "parameters": [
           {
@@ -528,6 +558,11 @@
         "tags": [
           "Endpoints"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -544,6 +579,11 @@
         "summary": "Put Record By ID",
         "tags": [
           "Endpoints"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
         ],
         "parameters": [
           {
@@ -572,6 +612,11 @@
         "tags": [
           "Endpoints"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "string",
@@ -599,6 +644,11 @@
         "tags": [
           "Endpoints"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [],
         "responses": {},
         "requestBody": {
@@ -614,6 +664,14 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Enter your Bearer Token."
+      }
+    },
     "schemas": {
       "New User": {
         "type": "object",
