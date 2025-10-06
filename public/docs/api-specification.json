@@ -895,7 +895,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/Records Success Response"
+                  "$ref": "#/components/responses/Record Success Response"
                 },
                 "example": {
                   "success": true,
@@ -963,6 +963,15 @@
             }
           },
           {
+            "name": "id",
+            "in": "url",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
             "name": "string",
             "in": "query",
             "required": false,
@@ -972,7 +981,49 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Record Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Record updated successfully.",
+                  "record": {
+                    "id": 2,
+                    "string": "test put string",
+                    "text": "Voluptatibus et qui ducimus consequuntur impedit sit. Ab laborum fugit minima sed ut. Sunt sed quia corrupti porro mollitia. Voluptas corporis est autem voluptatibus illo beatae maxime. Neque qui sequi blanditiis et. Unde velit in aliquam et delectus qui et. Nihil quia numquam est velit quidem sunt reprehenderit. Unde non impedit velit alias aliquam impedit et. Molestiae et laboriosam sit quasi ea et dolores. Corporis sint eligendi ab numquam quia eaque labore. Sequi dolor in sequi blanditiis ipsam velit necessitatibus occaecati. Doloremque doloribus quasi accusantium blanditiis dolores. Rerum nemo aut omnis id autem perspiciatis et. Commodi maxime expedita quia eos iste qui. Eum provident qui dolores aut iure ex. Nemo optio sequi laudantium voluptatum nesciunt sint tempora voluptas. Debitis sit ut autem eum. Ad quam enim ex id. Aperiam similique enim repellat quam quae. Officia officia asperiores accusantium expedita. Voluptatem sit recusandae est alias nam qui et beatae.",
+                    "json": null,
+                    "boolean": true,
+                    "integer": 1,
+                    "float": 53.5,
+                    "deleted_at": null,
+                    "created_at": "2025-06-10T19:42:04.000000Z",
+                    "updated_at": "2025-06-10T19:42:04.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Record Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. Record not updated.",
+                  "record": null
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
