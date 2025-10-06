@@ -627,7 +627,39 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "schema": {
+            "$ref": "#/components/responses/Simple Success Response"
+          },
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Simple Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "User deleted successfully."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Simple Success Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. User not deleted."
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
