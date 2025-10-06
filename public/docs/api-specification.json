@@ -1145,9 +1145,47 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "id",
+            "in": "url",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Simple Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Record deleted successfully."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Simple Success Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. Record not deleted."
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
