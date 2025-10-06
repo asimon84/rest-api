@@ -45,7 +45,7 @@ class RecordController extends Controller
         ]);
 
         $success = (!empty($record)) ? true : false;
-        $message = ($success) ? 'Record created successfully.' : 'Task failed. Record not found.';
+        $message = ($success) ? 'Record created successfully.' : 'Task failed. Record not created.';
 
         return response()->json([
             'success' => $success,
