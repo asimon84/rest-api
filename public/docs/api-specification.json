@@ -722,7 +722,51 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Record Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Records retrieved successfully.",
+                  "records": [
+                    {
+                      "id": 2,
+                      "string": "Totam quod velit et. Id temporibus magnam enim sed non temporibus distinctio. Ut soluta magnam impedit nisi. Quis autem qui error molestiae omnis dolores. Explicabo et nisi iure vero aliquam iure. Nihil autem quo consequatur animi iste perspiciatis.",
+                      "text": "Voluptatibus et qui ducimus consequuntur impedit sit. Ab laborum fugit minima sed ut. Sunt sed quia corrupti porro mollitia. Voluptas corporis est autem voluptatibus illo beatae maxime. Neque qui sequi blanditiis et. Unde velit in aliquam et delectus qui et. Nihil quia numquam est velit quidem sunt reprehenderit. Unde non impedit velit alias aliquam impedit et. Molestiae et laboriosam sit quasi ea et dolores. Corporis sint eligendi ab numquam quia eaque labore. Sequi dolor in sequi blanditiis ipsam velit necessitatibus occaecati. Doloremque doloribus quasi accusantium blanditiis dolores. Rerum nemo aut omnis id autem perspiciatis et. Commodi maxime expedita quia eos iste qui. Eum provident qui dolores aut iure ex. Nemo optio sequi laudantium voluptatum nesciunt sint tempora voluptas. Debitis sit ut autem eum. Ad quam enim ex id. Aperiam similique enim repellat quam quae. Officia officia asperiores accusantium expedita. Voluptatem sit recusandae est alias nam qui et beatae.",
+                      "json": null,
+                      "boolean": true,
+                      "integer": 1,
+                      "float": 53.5,
+                      "deleted_at": null,
+                      "created_at": "2025-06-10T19:42:04.000000Z",
+                      "updated_at": "2025-06-10T19:42:04.000000Z"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Record Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. Records not found.",
+                  "records": null
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
@@ -973,6 +1017,41 @@
             "type": "string"
           }
         }
+      },
+      "Record": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "text": {
+            "type": "text"
+          },
+          "json": {
+            "type": "string"
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "integer": {
+            "type": "integer"
+          },
+          "float": {
+            "type": "float"
+          },
+          "deleted_at": {
+            "type": "datetime"
+          },
+          "created_at": {
+            "type": "datetime"
+          },
+          "updated_at": {
+            "type": "datetime"
+          }
+        }
       }
     },
     "parameters": {
@@ -1024,6 +1103,20 @@
           }
         }
       },
+      "Record Success Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "records": {
+            "$ref": "#/components/schemas/Record"
+          }
+        }
+      },
       "Error Response": {
         "type": "object",
         "properties": {
@@ -1048,6 +1141,20 @@
             "type": "string"
           },
           "user": {
+            "type": "null"
+          }
+        }
+      },
+      "Record Error Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "records": {
             "type": "null"
           }
         }
