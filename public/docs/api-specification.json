@@ -436,13 +436,81 @@
             "bearerAuth": []
           }
         ],
-        "parameters": [],
-        "responses": {},
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "example": "Post Test User",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "example": "test@test.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "example": "test1234",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/User Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "User updated successfully.",
+                  "user": {
+                    "id": 1,
+                    "name": "TESTABLE",
+                    "email": "test@example.com",
+                    "created_at": "2025-06-10T19:42:03.000000Z",
+                    "updated_at": "2025-10-05T23:45:49.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/User Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. User not updated.",
+                  "user": null
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "$ref": "#/components/schemas/New User"
+              },
+              "example": {
+                "name": "TESTABLE"
               }
             }
           }
@@ -487,12 +555,52 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/User Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "User updated successfully.",
+                  "user": {
+                    "id": 1,
+                    "name": "TESTABLE",
+                    "email": "test@example.com",
+                    "created_at": "2025-06-10T19:42:03.000000Z",
+                    "updated_at": "2025-10-05T23:45:49.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/User Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. User not updated.",
+                  "user": null
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "$ref": "#/components/schemas/New User"
+              },
+              "example": {
+                "name": "TESTABLE"
               }
             }
           }
