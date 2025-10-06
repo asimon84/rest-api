@@ -728,7 +728,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/Record Success Response"
+                  "$ref": "#/components/responses/Records Success Response"
                 },
                 "example": {
                   "success": true,
@@ -756,7 +756,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responses/Record Error Response"
+                  "$ref": "#/components/responses/Records Error Response"
                 },
                 "example": {
                   "success": false,
@@ -807,7 +807,45 @@
             }
           }
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Record Success Response"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Record created successfully.",
+                  "record": {
+                    "string": "test",
+                    "text": null,
+                    "json": null,
+                    "boolean": false,
+                    "integer": 0,
+                    "float": 0
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An unsuccessful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Record Error Response"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Task failed. Record not found.",
+                  "record": null
+                }
+              }
+            }
+          }
+        },
         "requestBody": {
           "content": {
             "application/json": {
@@ -1018,6 +1056,32 @@
           }
         }
       },
+      "New Record": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "text": {
+            "type": "text"
+          },
+          "json": {
+            "type": "string"
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "integer": {
+            "type": "integer"
+          },
+          "float": {
+            "type": "float"
+          }
+        }
+      },
       "Record": {
         "type": "object",
         "properties": {
@@ -1112,6 +1176,20 @@
           "message": {
             "type": "string"
           },
+          "record": {
+            "$ref": "#/components/schemas/New Record"
+          }
+        }
+      },
+      "Records Success Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
           "records": {
             "$ref": "#/components/schemas/Record"
           }
@@ -1146,6 +1224,20 @@
         }
       },
       "Record Error Response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "record": {
+            "type": "null"
+          }
+        }
+      },
+      "Records Error Response": {
         "type": "object",
         "properties": {
           "success": {
