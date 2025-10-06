@@ -437,7 +437,7 @@
         }
       },
       "patch": {
-        "summary": "Patch User",
+        "summary": "Patch Current User",
         "tags": [
           "Endpoints"
         ],
@@ -536,7 +536,7 @@
         }
       },
       "put": {
-        "summary": "Put User",
+        "summary": "Put Current User",
         "tags": [
           "Endpoints"
         ],
@@ -635,7 +635,7 @@
         }
       },
       "delete": {
-        "summary": "Delete User",
+        "summary": "Delete Current User",
         "tags": [
           "Endpoints"
         ],
