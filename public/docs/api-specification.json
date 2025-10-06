@@ -377,7 +377,17 @@
             "bearerAuth": []
           }
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -437,6 +447,15 @@
           }
         ],
         "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -527,6 +546,15 @@
           }
         ],
         "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -623,7 +651,7 @@
             "required": false,
             "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -683,7 +711,17 @@
             "bearerAuth": []
           }
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {},
         "requestBody": {
           "content": {
@@ -706,6 +744,15 @@
           }
         ],
         "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "string",
             "in": "query",
@@ -740,7 +787,17 @@
             "bearerAuth": []
           }
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {},
         "requestBody": {
           "content": {
@@ -763,6 +820,15 @@
           }
         ],
         "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "string",
             "in": "query",
@@ -796,6 +862,15 @@
         ],
         "parameters": [
           {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "string",
             "in": "query",
             "required": false,
@@ -826,7 +901,17 @@
             "bearerAuth": []
           }
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "example": "1|KfScfXlgJIOpTh9TMiZNUc4nmkt2oEgFFVyYkxIHe900f87c",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {},
         "requestBody": {
           "content": {
