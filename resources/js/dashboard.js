@@ -59,7 +59,7 @@ $(document).on('click', '.view-record', function() {
             $('#record-modal-string').html(data.string);
             $('#record-modal-text').html(data.text);
             $('#record-modal-json').html(data.json);
-            $('#record-modal-boolean').html(data.boolean);
+            $('#record-modal-boolean').html(data.boolean.toString());
             $('#record-modal-integer').html(data.integer);
             $('#record-modal-float').html(data.float);
         },
