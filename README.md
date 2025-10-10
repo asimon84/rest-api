@@ -12,13 +12,15 @@ git clone git@github.com:asimon84/rest-api.git
 
 composer install
 
+php artisan migrate
+
+php artisan db:seed
+
+php artisan serve
+
 npm run build
 
 npm run dev
-
-php artisan migrate
-
-php artisan serve
 
 After running the above commands, navigate to your localhost in your browser (http://localhost:8000/). You can log in to the client portal with these credentials:
 
